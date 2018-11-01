@@ -27,7 +27,7 @@ export default {
     external(),
     scss({
       output: true,
-      output: 'dist/bundle.css',
+      output: 'dist/tk2-design.css',
     }),
     postcss({
       modules: true,
@@ -36,8 +36,7 @@ export default {
     url(),
     svgr(),
     babel({
-      exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
+      exclude: 'node_modules/**'
     }),
     resolve(),
     commonjs()

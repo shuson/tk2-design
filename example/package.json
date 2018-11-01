@@ -9,7 +9,14 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^1.1.4",
-    "tk2-design": "link:.."
+    "classnames": "^2.2.5",
+    "jquery": "^2.2.2",
+    "moment": "^2.22.1",
+    "recharts": "~1.1.0",
+    "reactstrap": "^6.0.1",
+    "bootstrap": "^4.0.0",
+    "popper.js": "^1.14.1",
+    "tk2-design": "link:.." 
   },
   "scripts": {
     "start": "react-scripts start",

@@ -3,7 +3,13 @@
     ["env", {
       "modules": false
     }],
-    "stage-0",
-    "react"
+    "react", "stage-2"
+  ],
+  "plugins": [
+    "external-helpers",
+    ["import", {
+      "libraryName": "antd",
+      "style": true
+    }]
   ]
 }

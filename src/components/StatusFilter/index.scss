@@ -1,0 +1,46 @@
+/*
+* StatusFilter scoped styles
+*/
+
+.statusFilter {
+  margin-top: 2px;
+  min-height: 1.8em;
+
+  .presetSpan {
+    padding: 6px 10px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-right: 6px;
+    color: #6bbed7;
+    line-height: 18px;
+    background: transparent;
+  }
+
+  .presetSpan:hover,
+  .presetSpanActive {
+    font-weight: normal;
+    color: #ffffff;
+    border-radius: 18px;
+    background: #335777;
+    border: 0;
+    outline: 0 !important;
+  }
+
+  .presetSpanSubstatus {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 400;
+    margin-right: 5px;
+    color: #6bbed7;
+    line-height: 18px;
+    background: transparent;
+  }
+
+  .presetSpanSubstatus:hover,
+  .presetSpanSubstatusActive {
+    font-weight: bolder;
+    color: #335777;
+    border: 0;
+    outline: 0 !important;
+  }
+}

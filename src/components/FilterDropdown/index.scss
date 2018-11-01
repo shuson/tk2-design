@@ -1,0 +1,104 @@
+/*
+* FilterDropdown scoped styles
+*/
+@import "../../styles/app";
+
+.wrapper {
+  display: inline-block;
+  padding-top: 6px;
+  position: relative;
+
+  .filterTrigger {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    cursor: pointer;
+
+    span {
+      font-size: 13px;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(to bottom, rgba(0, 162, 155, 0.69), #33a9de);
+    }
+
+    .triggerIcon {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 6px;
+      margin-left: 2px;
+      margin-top: -6px;
+    }
+  }
+
+  .filterContent {
+    top: 150%;
+    position: absolute;
+    right: 0%;
+    min-width: 365px;
+    display: none;
+    border-radius: 6px;
+    box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+    border: solid 1px #99A6B5;
+    padding-top: 30px;
+    z-index: 1000;
+
+    &:before, &:after{
+      bottom: 100%;
+      left: 85%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+    &:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-bottom-color: #fff;
+      border-width: 6px;
+      margin-left: -6px;
+    }
+    &:before {
+      border-color: rgba(153, 166, 181, 0);
+      border-bottom-color: #99a6b5;
+      border-width: 7px;
+      margin-left: -7px;
+    }
+
+    .contentBody {
+      padding: 0 0 15px 30px;
+      text-align: left;
+
+      .filterList {
+        width: 160px;
+        height: 150px;
+        display: inline-block;
+
+        p {
+          font-size: 14px;
+          font-weight: bold;
+          color: #6a7088;
+          margin-bottom: 15px;
+        }
+
+        ul {
+          padding-left: 12px;
+
+          li {
+            margin: 6px 0;
+          }
+        }
+      }
+    }
+
+    .contentFooter {
+      background-color: #f2f4f6;
+      padding: 15px 30px 15px 0;
+      text-align: right;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+  }
+}

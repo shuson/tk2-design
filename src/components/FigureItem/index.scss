@@ -1,0 +1,39 @@
+/*
+* FigureItem.scss scoped styles
+*/
+
+.figureLi {
+  padding: 0 2rem 2px 2rem;
+  float: left;
+  border-right: 1px solid #cbd3da;
+  text-align: left;
+  list-style-type: none;
+  min-width: 8rem;
+
+  .hint {
+    display: inline-block;
+    margin-left: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  span {
+    display: block;
+     small {
+       margin-left: .5rem;
+     }
+  }
+
+  span:first-child {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: 3px;
+  }
+
+  span:last-child {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #bc9a68;
+  }
+}
