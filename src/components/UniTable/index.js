@@ -5,6 +5,10 @@ import { Scrollbars } from 'react-custom-scrollbars'
 
 import style from './index.scss'
 import isArray from 'lodash/isArray'
+import find from 'lodash/find';
+import remove from 'lodash/remove';
+import cloneDeep from 'lodash/cloneDeep';
+import orderBy from 'lodash/orderBy';
 
 class UniTable extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props){
@@ -14,7 +18,8 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
       tableWidth: "100%",
       prevLeft: -1,
       prevTop: -1,
-      toLeft: 0
+      toLeft: 0,
+      sortedColumns: [],
     }
   }
   
@@ -61,8 +66,95 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
     }
   }
 
+  toggleColumnSort = column => {
+    // fetch column setting
+    const { sortedColumns } = this.state;
+    console.log('exiting columns', sortedColumns);
+    const workingColumn = find(sortedColumns, o => {
+      return o.name === column;
+    });
+
+    if (workingColumn) {
+      // strip away workingColumn from the original list
+      let updatedSortedColumns = remove(sortedColumns, o => {
+        return o.name !== workingColumn.name;
+      });
+
+      // return 'desc' order if current order is 'asc'
+      if (workingColumn.order === 'asc') {
+        let updatedWorkingColumn = {
+          name: column,
+          order: 'desc',
+        };
+
+        // push to state
+        updatedSortedColumns.push(updatedWorkingColumn);
+        this.setState({
+          ...this.state,
+          sortedColumns: updatedSortedColumns
+        });
+
+        return;
+      }
+
+      // else, remove column from list
+      this.setState({
+        ...this.state,
+        sortedColumns: updatedSortedColumns
+      });
+
+      return;
+    }
+
+    // if the column is not yet sorting, set order to 'asc'
+    let updatedWorkingColumn = {
+      name: column,
+      order: 'asc',
+    };
+
+    // push to state
+    let updatedSortedColumns = cloneDeep(sortedColumns);
+    updatedSortedColumns.push(updatedWorkingColumn);
+    console.log('updated columns', updatedSortedColumns);
+    this.setState({
+      ...this.state,
+      sortedColumns: updatedSortedColumns
+    });
+
+    return;
+  }
+
+  renderSortCaret = column => {
+    const { sortedColumns } = this.state;
+    const workingColumn = find(sortedColumns, o => {
+      return o.name === column;
+    });
+
+    if (workingColumn) {
+      if (workingColumn.order === 'asc') {
+        return (
+          <button onClick={() => this.toggleColumnSort(column)}>
+            <i className="fa fa-sort-up"></i>
+          </button>
+        );
+      }
+
+      return (
+        <button onClick={() => this.toggleColumnSort(column)}>
+          <i className="fa fa-sort-down"></i>
+        </button>
+      );
+    }
+
+    return (
+      <button onClick={() => this.toggleColumnSort(column)}>
+        <i className="fa fa-sort"></i>
+      </button>
+    );
+  }
+
   render() {
-    const {tableWidth, toLeft } = this.state
+    const {tableWidth, toLeft, sortedColumns } = this.state
     const {name, columns, data, tableFilter, filterKey} = this.props
 
     let tableHeader = []
@@ -73,20 +165,34 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
 
           if(!tableFilter[filterKey] || tableFilter[filterKey][ind.id]) {
             tableHeader.push(<th key={`th-${i}-${j}`} className={style.withIndicator}> 
-              {ind.name}
+              <span>{ind.name}</span>
+              { this.renderSortCaret(col.id) }
             </th>)
           }
         })
       } else {
         tableHeader.push(<th key={`th-${i}`} 
           style={{minWidth: col.id == "top_3_wc_matches"? 126 : 87, maxWidth: col.id == "top_3_wc_matches"? 126 : 87}}>
-          {col.name}
+          <span>{col.name}</span>
+          { this.renderSortCaret(col.id) }
         </th>)
       }
     })
 
+    let sortedData = data;
+    if (sortedColumns.length > 0) {
+      let columns = [];
+      let orders = [];
+      sortedColumns.map(column => {
+        columns.push(column.name);
+        orders.push(column.order);
+      });
+
+      sortedData =  orderBy(data, columns, orders);
+    }
+
     let tableContent = []
-    data.forEach((customer, i) => {
+    sortedData.forEach((customer, i) => {
       let tds = []
       columns.forEach((col, j) => {
         if(col.id == "indicator") {
