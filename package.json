@@ -65,7 +65,9 @@
     "rollup-plugin-url": "^1.4.0",
     "shelljs": "^0.8.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-custom-scrollbars": "^4.2.1"
+  },
   "files": [
     "dist"
   ]
