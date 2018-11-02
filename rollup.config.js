@@ -30,9 +30,9 @@ export default {
   ],
   plugins: [
     external(),
-    // scss({
-    //   output
-    // }),
+    //scss({
+    //  output
+    //}),
     postcss({
       modules: true,
       extensions: ['.css'],
