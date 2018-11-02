@@ -1,4 +1,5 @@
 export {default as Wait4Me } from './components/Wait4Me'
 export {default as FigureItem} from './components/FigureItem'
 export {default as RangedDtPicker} from './components/RangedDtPicker'
+export {default as UniTable} from './components/UniTable'
 export {StatusFilter, SubstatusFilter} from './components/StatusFilter'

@@ -4,13 +4,7 @@ import classnames from 'classnames'
 import { Scrollbars } from 'react-custom-scrollbars'
 
 import style from './index.scss'
-
-import { nsColorFinder } from '../../util';
 import isArray from 'lodash/isArray'
-
-import filterImg from "../../assets/filter.png"
-import filterAppliedImg from "../../assets/filterApplied.png"
-import moment from 'moment'
 
 class UniTable extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props){
@@ -76,11 +70,9 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
       if(col.id == "indicator") {
         const names = col.name
         names.forEach((ind, j) => {
-          const color = nsColorFinder(ind.id)
 
           if(!tableFilter[filterKey] || tableFilter[filterKey][ind.id]) {
             tableHeader.push(<th key={`th-${i}-${j}`} className={style.withIndicator}> 
-              <i className={classnames(style.dotIndicator)} style={{background: color}}></i>
               {ind.name}
             </th>)
           }
