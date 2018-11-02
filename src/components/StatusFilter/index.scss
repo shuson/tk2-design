@@ -2,6 +2,8 @@
 * StatusFilter scoped styles
 */
 
+@import '../../theme/variables';
+
 .statusFilter {
   margin-top: 2px;
   min-height: 1.8em;
@@ -11,7 +13,7 @@
     cursor: pointer;
     font-weight: 500;
     margin-right: 6px;
-    color: #6bbed7;
+    color: $cyan;
     line-height: 18px;
     background: transparent;
   }
@@ -21,7 +23,7 @@
     font-weight: normal;
     color: #ffffff;
     border-radius: 18px;
-    background: #335777;
+    background: $blue;
     border: 0;
     outline: 0 !important;
   }
@@ -31,7 +33,7 @@
     cursor: pointer;
     font-weight: 400;
     margin-right: 5px;
-    color: #6bbed7;
+    color: $cyan;
     line-height: 18px;
     background: transparent;
   }
@@ -39,7 +41,7 @@
   .presetSpanSubstatus:hover,
   .presetSpanSubstatusActive {
     font-weight: bolder;
-    color: #335777;
+    color: $blue;
     border: 0;
     outline: 0 !important;
   }

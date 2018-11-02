@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import Tooltip from 'antd/lib/tooltip'
-import 'antd/lib/tooltip/style/css'
 
 import {formatNumeric } from '../../util'
 

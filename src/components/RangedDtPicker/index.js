@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import moment from 'moment';
 
-import DatePicker from 'antd/lib/date-picker';
-import 'antd/lib/date-picker/style/css'
+import DatePicker from 'antd/lib/date-picker'
 
 import style from './index.scss'
 

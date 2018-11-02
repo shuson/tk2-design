@@ -1,3 +1,6 @@
+import {writeFileSync, existsSync} from 'fs'
+import sh from 'shelljs'
+import path from 'path'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
@@ -6,6 +9,8 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
 import svgr from '@svgr/rollup'
+
+import sass from 'node-sass'
 
 import pkg from './package.json'
 
@@ -26,12 +31,12 @@ export default {
   plugins: [
     external(),
     scss({
-      output: true,
-      output: 'dist/tk2-design.css',
+      //output
     }),
     postcss({
       modules: true,
-      sourceMap: 'inline'
+      extensions: ['.css'],
+      sourceMap: false
     }),
     url(),
     svgr(),
@@ -41,4 +46,25 @@ export default {
     resolve(),
     commonjs()
   ]
+}
+
+function output(styles, styleNodes) { //this is to keep the style source to to dist
+  const fileList = Object.keys(styleNodes)
+  fileList.forEach(function(file) {
+    const outDir = file.substring(file.lastIndexOf("/components")+12, file.lastIndexOf("/"))
+    const outputFile = file.substring(file.lastIndexOf("/components")+12, file.lastIndexOf("."))
+    
+    const result = sass.renderSync({
+      file: file
+    })
+    
+    const fileDir = path.resolve(__dirname, './dist/styles/'+outDir)
+    if(!existsSync(fileDir)) {
+      sh.mkdir('-p', fileDir)
+    }
+    const filename = path.resolve(__dirname, `./dist/styles/${outputFile}.css`)
+    if(!existsSync(filename)) {
+      writeFileSync(filename, result.css)
+    }
+  })
 }

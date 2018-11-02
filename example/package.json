@@ -13,9 +13,7 @@
     "jquery": "^2.2.2",
     "moment": "^2.22.1",
     "recharts": "~1.1.0",
-    "reactstrap": "^6.0.1",
-    "bootstrap": "^4.0.0",
-    "popper.js": "^1.14.1",
+    "antd": "^3.10.3",
     "tk2-design": "link:.." 
   },
   "scripts": {

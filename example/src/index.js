@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import 'tk2-design/dist/tk2-design.css'
+import 'antd/dist/antd.css'
 import './index.css'
 import App from './App'
 
