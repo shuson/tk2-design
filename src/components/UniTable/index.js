@@ -30,25 +30,6 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
     tableFilter: PropTypes.object
   };
 
-  updateTableWidth = () => {
-    const {name} = this.props
-    const elem = document.getElementById(name);
-    const computedStyle = window.getComputedStyle(elem, null);
-    const newWidth = computedStyle.getPropertyValue("width");
-
-    this.setState({
-      tableWidth: parseInt(newWidth)
-    })
-  }
-
-  componentDidMount() {
-    this.updateTableWidth();
-    window.addEventListener("resize", this.updateTableWidth);
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateTableWidth);
-  }
-
   handleScroll = (e) => {
     const {prevLeft, prevTop} = this.state;
 
@@ -69,7 +50,6 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
   toggleColumnSort = column => {
     // fetch column setting
     const { sortedColumns } = this.state;
-    console.log('exiting columns', sortedColumns);
     const workingColumn = find(sortedColumns, o => {
       return o.name === column;
     });
@@ -115,7 +95,6 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
     // push to state
     let updatedSortedColumns = cloneDeep(sortedColumns);
     updatedSortedColumns.push(updatedWorkingColumn);
-    console.log('updated columns', updatedSortedColumns);
     this.setState({
       ...this.state,
       sortedColumns: updatedSortedColumns
@@ -154,7 +133,7 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
   }
 
   render() {
-    const {tableWidth, toLeft, sortedColumns } = this.state
+    const {sortedColumns } = this.state
     const {name, columns, data, tableFilter, filterKey} = this.props
 
     let tableHeader = []
@@ -164,15 +143,14 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
         names.forEach((ind, j) => {
 
           if(!tableFilter[filterKey] || tableFilter[filterKey][ind.id]) {
-            tableHeader.push(<th key={`th-${i}-${j}`} className={style.withIndicator}> 
+            tableHeader.push(<th key={`th-${i}-${j}`}> 
               <span>{ind.name}</span>
               { this.renderSortCaret(col.id) }
             </th>)
           }
         })
       } else {
-        tableHeader.push(<th key={`th-${i}`} 
-          style={{minWidth: col.id == "top_3_wc_matches"? 126 : 87, maxWidth: col.id == "top_3_wc_matches"? 126 : 87}}>
+        tableHeader.push(<th key={`th-${i}`}>
           <span>{col.name}</span>
           { this.renderSortCaret(col.id) }
         </th>)
@@ -199,14 +177,13 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
           const names = col.name
           names.forEach((ind, k) => {
             if(!tableFilter[filterKey] || tableFilter[filterKey][ind.id]) {
-              tds.push(<td className={style.withIndicator} key={`row-${i}-cell-${j}-sub${k}`}>
+              tds.push(<td key={`row-${i}-cell-${j}-sub${k}`}>
                 {customer[ind.id]}
               </td>)
             }
           })
         } else {
-          tds.push(<td key={`row-${i}-cell-${j}`} 
-            style={{minWidth: col.id == "top_3_wc_matches"? 126 : 87, maxWidth: col.id == "top_3_wc_matches"? 126 : 87}}>
+          tds.push(<td key={`row-${i}-cell-${j}`}>
             {isArray(customer[col.id]) ? 
               customer[col.id].map((name, mi) => <React.Fragment key={`r-fragment-${mi}`}>{name}<br/></React.Fragment>) : customer[col.id]}
           </td>)
@@ -218,22 +195,16 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
 
     return (
       <div className={style.wrapper}>
-        <div className={classnames("row m-0", style.pdlr0)}>
-          <table className={classnames("table-striped")} id={name}
-            style={{width: tableWidth+"px"}}>
-            <thead style={{width: tableWidth+"px", left: -toLeft + "px"}}>
-              <tr className="clearfix">
-                {tableHeader}
-              </tr>
-            </thead>
-            <Scrollbars style={{ height: "300px",maxHeight:'300px' }} onScrollFrame={this.handleScroll}>
-              <tbody>
-                {tableContent}
-              </tbody>
-            </Scrollbars>
-          </table>
-        </div>
-        
+        <table className={classnames("table-striped")} id={name}>
+          <thead>
+            <tr>
+              {tableHeader}
+            </tr>
+          </thead>
+          <tbody>
+            {tableContent}
+          </tbody>
+        </table>
       </div>
     );
   }
