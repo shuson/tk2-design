@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
 import { Scrollbars } from 'react-custom-scrollbars';
+import classnames from 'classnames';
 
+import '../../theme/_checkbox.scss';
 import style from './index.scss'
 
-import filterAppliedImg from '../../assets/filterApplied.png'
+import filterAppliedImg from './filterApplied'
 
 class FilterDropdown extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
@@ -109,7 +110,7 @@ class FilterDropdown extends React.Component { // eslint-disable-line react/pref
         <div className={style.filterContent} style={{display: isHidden? "none" : "block"}}>
           <FilterList groupData={filterGroupData.groupData} checkboxStates={checkboxStates} onCheckboxChange={this.onCheckboxChange} />
           <div className={style.contentFooter}>
-            <button className="btn btn-tertiary" type="button" onClick={this.onCancel}>Cancel</button>
+            <button className={classnames('btn', style.btnTertiary)} type="button" onClick={this.onCancel}>Cancel</button>
             <button className="btn btn-secondary" type="button" onClick={this.onConfirm}>Set</button>
           </div>
         </div>
@@ -146,11 +147,11 @@ class FilterList extends React.Component {
           <li key={filter.id + j}>
             <div className="custom-checkbox">
               <input type="checkbox" name={filter.id} id={inputId} 
-                className="css-checkbox" checked={!!checkboxStates[groupTitle][filter.id]} 
+                className={style.cssCheckbox} checked={!!checkboxStates[groupTitle][filter.id]} 
                 onChange={(e) => {onCheckboxChange(group.title, filter.id)}}
                 defaultChecked={true}
               />
-              <label htmlFor={inputId} className="css-label">{filter.name}</label>
+              <label htmlFor={inputId} className={style.cssLabel}>{filter.name}</label>
             </div>
           </li>
         )

@@ -1,0 +1,35 @@
+input[type=checkbox].cssCheckbox {
+    position:absolute;
+    z-index:-1000;
+    left:-1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height:1px;
+    width:1px;
+    margin:-1px;
+    padding:0;
+    border:0;
+}
+input[type=checkbox].cssCheckbox + label.cssLabel {
+    padding-left:21px;
+    display:inline-block;
+    line-height:16px;
+    background-repeat:no-repeat;
+    color: #6a7088;
+    font-size: 12px;
+    font-weight:normal;
+    vertical-align:middle;
+    cursor:pointer;
+}
+input[type=checkbox].cssCheckbox:checked + label.cssLabel {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAntJREFUOBFtU81rU0EQ353dNkZqiaG0BQ+JerDQ1G8kOXjRngVDwaoEPAlKPXro/6CnilIE8WIUpIInezAnabGCVAuiaRWDVRtsU9PaNn352PU3m5cYivN23uzOzsdvZnel8Cn05NmRWrV2SQrqM9aEWS2llRaDZd2MVoSwWWVVuphKvnc2/As9mrhirLgKF6ws2LffsWRbR9ZaknS/ePn8Qxl6/PyYrJp7yCEthhRIydP/UiM4S2CrqeuajEwJIlXPuTNlqwNH9JE1pJYpLYXqF9bQv4QNI7aXAISPJSjeFQ7mNrcq+a3tirOX1K8BtkeSdmuUhoahZSBWNDsIdTK6r/NOYiC6VPLKg5NT87/LZQN1tyapyfWNHZyTEB1tiv5UakZIDEEiub93z1g8FtFEMqgUBZRS0pLbI/SOkNRxQJGaGDwZfXPu9KHY3s4gnCkZ6Q2NxQecc8ErV4Yyb3PLW1WERSQhFdJLJbBkiuze1X6qK9TRhkxPzxyPjmcXCzdjBximLHgVOL/7Nr9eqqFvfs+MwJYistCAv2541ZGpD0sVY2w40K5HDx/sYeeV7XJ16OXs94W1DcOIAVvVWcNZEH4YYEBWL36slkamP+U5CKNC5upwZu7nl/USnFEjbJr+HIwsrXKtzByM5eRiwbsxnf31sbjpXcjM5RfWANv6+750iQUVZDT96gHO+SxnEwbM1bFkasz9iuvn1Lhc2Lcmgx7qcaCol8L94JJYts5Zx+haUGCOdsA3dzExo0jfggHfoXpv/GMVFrEwZ+nmCMISWfGW1G32bd7bvvRMwpC+ZkTtKN5Ttyuh+TJdP1m1jIizOLy7n4dPvGbFXw1K8ZWUGfA/AAAAAElFTkSuQmCC');
+}
+label.cssLabel {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAVtJREFUOBGlU7FqwmAQvrsEcXbzFboUwUkwZJDGoUMfoHP7AkoFZyHgG7j2BdqhkIBD1NYpIBTaV8jWWWy8612wpUgHk34Efu7/7/v+fHf/IRwQzJMu72GIgG0Wbto2IoKIFGsRA2QapEgyjXv+6rAH0IsXYwS4BaQ7qksSe15mh8cIlssmb9FX0VDlZ/OgO8GLeOEx0L0jTivudz6OSX/FQbRu5JBvXJeuac80QHZGp5JN0HJJ3FH+KUNi9UxYS+ygDIxjXPCfnqUM8XeucQlAv8ogIK58P4A22K7XBlaEsP6/SHUBfTf/E2BWC4hO1o3S4umWcVJwBDOzkMpO/DJky5U9+WohJW3kVIDCIHprnCpiuZJzaNyigp2HzRhRbtTSyK3Vk1X/7M9h6kbvzXy39VEgBMHZ+qo1+WlB5/HVE+EBCLd1ZIuafI+yrQYtWCYgKbnO9OXyvBjnLxXfkC2eAY3JAAAAAElFTkSuQmCC');
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

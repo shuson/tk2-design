@@ -185,8 +185,12 @@ class UniTable extends React.Component { // eslint-disable-line react/prefer-sta
         } else {
           tds.push(<td key={`row-${i}-cell-${j}`}>
             {isArray(customer[col.id]) ? 
-              customer[col.id].map((name, mi) => <React.Fragment key={`r-fragment-${mi}`}>{name}<br/></React.Fragment>) : customer[col.id]}
-          </td>)
+              customer[col.id].map((name, mi) => 
+                <React.Fragment key={`r-fragment-${mi}`}>
+                  {name}<br/>
+                </React.Fragment>) :
+                customer[col.id]}
+          </td>);
         }
       })
 
