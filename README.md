@@ -49,4 +49,4 @@ There are two parts to be customized,
 
 ## License
 
-MIT © [sam wang](https://github.com/shuson)
+MIT
