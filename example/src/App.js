@@ -7,7 +7,8 @@ import {
   RangedDtPicker,
   StatusFilter,
   UniTable,
-  FilterDropdown
+  FilterDropdown,
+  CircularProgressBar
 } from 'tk2-design';
 
 export default class App extends Component {
@@ -266,6 +267,12 @@ export default class App extends Component {
       }
     };
 
+    // CircularProgressBar props
+    const CircularProgressBar_SAMPLEPERCENTAGE = 30;
+    const CircularProgressBar_SAMPLESQSIZE = 50;
+    const CircularProgressBar_SAMPLESTROKEFILL = '#E85252';
+    const CircularProgressBar_SAMPLESTROKEWIDTH = 5;
+
     // RangedDtPicker state: dateRange: {startDate, endDate, activeRangeNo}
     // StatusFilter state: activeStatusNo
 
@@ -320,6 +327,19 @@ export default class App extends Component {
               />
             </div>
           </div>
+        </div>
+
+        <div style={{ marginBottom: '30px' }} className="row col-sm-12">
+          <h4>CircularProgressBar Component</h4>
+        </div>
+
+        <div style={{marginBottom: '10px', marginBottom: '50px'}}>
+          <CircularProgressBar
+            sqSize={CircularProgressBar_SAMPLESQSIZE}
+            percentage={CircularProgressBar_SAMPLEPERCENTAGE}
+            strokeWidth={CircularProgressBar_SAMPLESTROKEWIDTH}
+            strokeFill={CircularProgressBar_SAMPLESTROKEFILL}
+          />
         </div>
 
         <div style={{ marginBottom: '30px' }} className="row col-sm-12">

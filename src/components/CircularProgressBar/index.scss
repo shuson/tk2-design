@@ -1,0 +1,23 @@
+/*
+* CircularProgressBar scoped styles
+*/
+
+.circleBackground,
+.circleProgress {
+  fill: none;
+}
+
+.circleBackground {
+  stroke: #ddd;
+}
+
+.circleProgress {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.circleText {
+  font-size: 1em;
+  font-weight: bold;
+  fill: black;
+}
