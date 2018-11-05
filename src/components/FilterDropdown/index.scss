@@ -1,12 +1,33 @@
 /*
 * FilterDropdown scoped styles
 */
-@import "../../styles/app";
+
+@import '../../theme/_checkbox.scss';
 
 .wrapper {
   display: inline-block;
   padding-top: 6px;
   position: relative;
+
+  .btnTertiary {
+    color: #6a7088;
+    .close {
+      background: transparent;
+      border: 0;
+      font-weight: 400;
+      font-size: 14;
+      color:#6a7088;
+      text-decoration: none;
+      opacity: 1;
+    }
+    &:hover{
+      color:#6a7088;
+    }
+    &:active, &:focus{
+      box-shadow:none;
+      color:#6a7088;
+    }
+  }
 
   .filterTrigger {
     background: transparent;

@@ -1,7 +1,14 @@
-import React, { Component } from 'react'
-import moment from 'moment'
+import React, { Component } from 'react';
+import moment from 'moment';
 
-import {Wait4Me, FigureItem, RangedDtPicker, StatusFilter, UniTable } from 'tk2-design'
+import {
+  Wait4Me,
+  FigureItem,
+  RangedDtPicker,
+  StatusFilter,
+  UniTable,
+  FilterDropdown
+} from 'tk2-design';
 
 export default class App extends Component {
   state = {
@@ -213,6 +220,52 @@ export default class App extends Component {
       }
     };
 
+    // FilterDropdown props
+    const FilterDropdown_SAMPLE_FILTERGROUPDATA = {
+      "title": "Business Parameters",
+      "groupData": [
+        {
+          "title": "Parameters",
+          "data": [
+            {
+              "id": "alerts",
+              "name": "Alerts"
+            },
+            {
+              "id": "hits",
+              "name": "Hits"
+            },
+            {
+              "id": "true_hits",
+              "name": "True Hits"
+            },
+            {
+              "id": "false_hits",
+              "name": "False Hits"
+            },
+            {
+              "id": "undetermined",
+              "name": "Undetermined"
+            },
+            {
+              "id": "auto_closed",
+              "name": "Auto-Closed Hits"
+            }
+          ]
+        }
+      ]
+    };
+    const FilterDropdown_USERFILTERSETTING = {
+      "Parameters": {
+        "alerts": true,
+        "hits": true,
+        "true_hits": true,
+        "false_hits": true,
+        "undetermined": true,
+        "auto_closed": true
+      }
+    };
+
     // RangedDtPicker state: dateRange: {startDate, endDate, activeRangeNo}
     // StatusFilter state: activeStatusNo
 
@@ -251,6 +304,22 @@ export default class App extends Component {
         
         <div style={{marginBottom: '10px'}}>
           <RangedDtPicker startDate={startDate} endDate={endDate} activeRangeNo={activeRangeNo} onDatesChange={this.onDatesChange} />
+        </div>
+
+        <div style={{ marginBottom: '30px' }} className="row col-sm-12">
+          <h4>FilterDropdown Component</h4>
+        </div>
+        
+        <div style={{marginBottom: '10px'}}>
+          <div className="row">
+            <div className="offset-sm-8 col-sm-4">
+              <FilterDropdown
+                filterGroupData={FilterDropdown_SAMPLE_FILTERGROUPDATA}
+                userFilterSetting={FilterDropdown_USERFILTERSETTING}
+                handleConfirm={() => {}}
+              />
+            </div>
+          </div>
         </div>
 
         <div style={{ marginBottom: '30px' }} className="row col-sm-12">

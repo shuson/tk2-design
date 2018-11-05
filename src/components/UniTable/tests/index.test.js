@@ -246,6 +246,7 @@ const UniTable_SAMPLE_TABLEFILTER = {
     "auto_closed": true
   }
 };
+
 test('AssocTransaction page container', (t) => {
   t.pass();
 });
