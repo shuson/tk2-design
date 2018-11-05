@@ -333,7 +333,7 @@ export default class App extends Component {
           <h4>CircularProgressBar Component</h4>
         </div>
 
-        <div style={{marginBottom: '10px', marginBottom: '50px'}}>
+        <div style={{marginBottom: '50px'}}>
           <CircularProgressBar
             sqSize={CircularProgressBar_SAMPLESQSIZE}
             percentage={CircularProgressBar_SAMPLEPERCENTAGE}
