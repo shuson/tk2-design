@@ -318,22 +318,22 @@ export default class App extends Component {
 
     return (
       <div>
-        <div style={{ margin: '30px' }} className="row col-sm-12">
+        <div style={{ marginBottom: '30px' }} className="row col-sm-12">
           <h4>Wait4Me Component</h4>
         </div>
 
         <Wait4Me />
 
-        <div style={{ margin: '30px' }} className="row col-sm-12">
+        <div style={{ marginBottom: '30px' }} className="row col-sm-12">
           <h4>StatusFilter Component</h4>
         </div>
 
-        <div style={{margin: '10px'}}>
+        <div style={{marginBottom: '10px'}}>
           <StatusFilter filterData={statusFilterData} statusData={statusData}
               activeIndex={activeStatusNo} handleClick={this.onStatusFilterChange} />
         </div>
 
-        <div style={{ margin: '30px' }} className="row col-sm-12">
+        <div style={{ marginBottom: '30px' }} className="row col-sm-12">
           <h4>FigureItem Component</h4>
         </div>
 
@@ -343,19 +343,19 @@ export default class App extends Component {
           <FigureItem figure={figure} tips={tips} />
         </ul>
 
-        <div style={{ margin: '30px' }} className="row col-sm-12">
+        <div style={{ marginBottom: '30px' }} className="row col-sm-12">
           <h4>RangedDtPicker Component</h4>
         </div>
         
-        <div style={{margin: '10px'}}>
+        <div style={{marginBottom: '10px'}}>
           <RangedDtPicker startDate={startDate} endDate={endDate} activeRangeNo={activeRangeNo} onDatesChange={this.onDatesChange} />
         </div>
 
-        <div style={{ margin: '30px' }} className="row col-sm-12">
+        <div style={{ marginBottom: '30px' }} className="row col-sm-12">
           <h4>UniTable Component</h4>
         </div>
 
-        <div style={{ margin: '10px' }}>
+        <div style={{ marginBottom: '30px' }}>
           <UniTable
             name="Individual"
             filterKey="Parameters"

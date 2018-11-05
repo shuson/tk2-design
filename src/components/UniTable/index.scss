@@ -49,6 +49,15 @@
           &:last-child {
             margin-right: 3px;
           }
+
+          button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            height: 5px;
+            width: 5px;
+            outline: none;
+          }
         }
 
         .withIndicator {
