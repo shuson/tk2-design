@@ -27,19 +27,13 @@
     thead{
       background: #eef4fa;
       position: relative;
-      display: block;
       overflow: visible;
       border-bottom: 1px solid #d5dee7;
 
       tr{
-        display: block;
-        width: 100%;
-
         th {
           position: relative;
           height: 40px;
-          min-width: 87px;
-          max-width: 87px;
           border-right: 1px solid #d5dee7;
           font-size: 11px;
           color: #556069;
@@ -59,11 +53,6 @@
             outline: none;
           }
         }
-
-        .withIndicator {
-          min-width: 107px;
-          max-width: 107px;
-        }
       }
     }
     tbody{
@@ -77,9 +66,7 @@
       }
 
       tr{
-        width: 100%;
         border-bottom: 1px solid #d5dee7;
-        display: table;
         
         td {
           position: relative;
@@ -106,34 +93,7 @@
             padding-left: 25px!important;
           }
         }
-
-        .withIndicator {
-          min-width: 107px;
-          max-width: 107px;
-        }
       }
-    }
-
-    .sortUp, .sortDown{
-      color: #bfc9d2;
-      position: absolute;
-      right: 6px;
-    
-      .fa{
-        font-size: 13px;
-        &:hover{
-            color:#6e7a87 !important;
-        }
-      }
-    }
-
-    .pdlr0{
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .pdl0{
-      padding-left: 0;
     }
   }
 }

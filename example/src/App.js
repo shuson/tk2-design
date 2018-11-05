@@ -96,43 +96,6 @@ export default class App extends Component {
         "name": "Business Segment"
       },
       {
-        "id": "indicator",
-        "name": [
-          {
-            "id": "alerts",
-            "name": "Alerts"
-          },
-          {
-            "id": "hits",
-            "name": "Hits"
-          },
-          {
-            "id": "true_hits",
-            "name": "True Hits"
-          },
-          {
-            "id": "false_hits",
-            "name": "False Hits"
-          },
-          {
-            "id": "undetermined",
-            "name": "Undetermined"
-          },
-          {
-            "id": "auto_closed",
-            "name": "Auto Closed"
-          },
-          {
-            "id": "hits_yield",
-            "name": "Hits Yield"
-          }
-        ]
-      },
-      {
-        "id": "average_hit_by_alert",
-        "name": "Average Hits\/Alerts"
-      },
-      {
         "id": "customer_id",
         "name": "Customer ID"
       }
@@ -152,14 +115,6 @@ export default class App extends Component {
           "Li JUN"
         ],
         "biz_segment": "Corp Bank Singapore",
-        "alerts": 209,
-        "hits": 4374,
-        "true_hits": 31,
-        "false_hits": 189,
-        "undetermined": 32,
-        "auto_closed": 3935,
-        "hits_yield": 0.02,
-        "average_hit_by_alert": 8.1
       },
       {
         "id": "cstm0000002",
@@ -175,14 +130,6 @@ export default class App extends Component {
           "ISLAM SAIFUL"
         ],
         "biz_segment": "Private Bank Singapore",
-        "alerts": 218,
-        "hits": 2448,
-        "true_hits": 29,
-        "false_hits": 199,
-        "undetermined": 32,
-        "auto_closed": 2112,
-        "hits_yield": 0.02,
-        "average_hit_by_alert": 6.1
       },
       {
         "id": "cstm0000001",
@@ -198,14 +145,6 @@ export default class App extends Component {
           "WEI WANG SHU"
         ],
         "biz_segment": "Corp Bank Singapore",
-        "alerts": 176,
-        "hits": 2375,
-        "true_hits": 49,
-        "false_hits": 389,
-        "undetermined": 52,
-        "auto_closed": 1873,
-        "hits_yield": 0.02,
-        "average_hit_by_alert": 8.1
       },
       {
         "id": "cstm0000002",
@@ -221,14 +160,6 @@ export default class App extends Component {
           "LI WEI"
         ],
         "biz_segment": "Private Bank Singapore",
-        "alerts": 174,
-        "hits": 2314,
-        "true_hits": 29,
-        "false_hits": 119,
-        "undetermined": 32,
-        "auto_closed": 2149,
-        "hits_yield": 0.02,
-        "average_hit_by_alert": 6.1
       },
       {
         "id": "cstm0000013",
@@ -244,14 +175,6 @@ export default class App extends Component {
           "Ang Tao"
         ],
         "biz_segment": "PFS-Mass",
-        "alerts": 138,
-        "hits": 1753,
-        "true_hits": 29,
-        "false_hits": 119,
-        "undetermined": 32,
-        "auto_closed": 1596,
-        "hits_yield": 0.02,
-        "average_hit_by_alert": 6.1
       },
       {
         "id": "cstm0000023",
@@ -267,14 +190,6 @@ export default class App extends Component {
           "Wong Tao"
         ],
         "biz_segment": "PFS-Mass",
-        "alerts": 138,
-        "hits": 1753,
-        "true_hits": 29,
-        "false_hits": 119,
-        "undetermined": 32,
-        "auto_closed": 1596,
-        "hits_yield": 0.02,
-        "average_hit_by_alert": 6.1
       },
       {
         "id": "cstm0000103",
@@ -290,24 +205,11 @@ export default class App extends Component {
           "Ia Tao"
         ],
         "biz_segment": "PFS-Mass",
-        "alerts": 138,
-        "hits": 1753,
-        "true_hits": 29,
-        "false_hits": 119,
-        "undetermined": 32,
-        "auto_closed": 1596,
-        "hits_yield": 0.02,
-        "average_hit_by_alert": 6.1
       }
     ];
     const UniTable_SAMPLE_TABLEFILTER = {
       "Parameters": {
         "alerts": true,
-        "hits": true,
-        "true_hits": true,
-        "false_hits": true,
-        "undetermined": true,
-        "auto_closed": true
       }
     };
 
