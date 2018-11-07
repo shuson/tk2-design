@@ -8,7 +8,8 @@ import {
   StatusFilter,
   UniTable,
   FilterDropdown,
-  CircularProgressBar
+  CircularProgressBar,
+  SearchBar,
 } from 'tk2-design';
 
 export default class App extends Component {
@@ -340,6 +341,16 @@ export default class App extends Component {
             strokeWidth={CircularProgressBar_SAMPLESTROKEWIDTH}
             strokeFill={CircularProgressBar_SAMPLESTROKEFILL}
           />
+        </div>
+
+        <div style={{ marginBottom: '30px' }} className="row col-sm-12">
+          <h4>SearchBar Component</h4>
+        </div>
+
+        <div style={{ marginBottom: '30px' }} className="row">
+          <div className="col-sm-4">
+            <SearchBar />
+          </div>
         </div>
 
         <div style={{ marginBottom: '30px' }} className="row col-sm-12">
